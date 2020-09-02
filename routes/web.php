@@ -13,13 +13,23 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// Route::get('/', function () {
-//     return view('Welcome');
-// });
+Route::get('/', function () {
+    return view('Welcome');
+});
 // Route::get('admin/settings', function () {
 //     return view('settings');
 // });
 
+
 Auth::routes();
 
-Route::get('/', 'HomeController@index')->name('home');
+
+Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
+
+    // Route::get('/', 'HomeController@index')->name('home');
+    Route::get('/dashboard', [
+
+        'uses' => 'HomeController@index',
+        'as' => 'home'
+    ]);
+});

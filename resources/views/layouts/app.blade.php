@@ -75,10 +75,25 @@
                 </div>
             </div>
         </nav>
+        </br>
+        <div class="container">
+            <div class="row">
+                @if(auth::check())
+                <div class="col-lg-4">
+                    <ul class="list-group">
 
-        <main class="py-4">
-            @yield('content')
-        </main>
+                        <li class="list-group-item">
+                            <a href="{{ route('home') }}">Home</a>
+                        </li>
+                    </ul>
+                </div>
+                @endif
+                <div class="col-lg-8">
+                    @yield('content')
+                </div>
+            </div>
+        </div>
+
     </div>
 </body>
 
