@@ -10,8 +10,7 @@
 
     <title>SSS Dashboard</title>
 
-    <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
+
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -19,6 +18,8 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="{{ asset('css/toastr.min.css') }}">
+
 </head>
 
 <body>
@@ -95,6 +96,22 @@
         </div>
 
     </div>
+
+    <script src="{{ asset('js/toastr.min.js') }}"></script>
+    <!-- Scripts -->
+    <script src="{{ asset('js/app.js') }}" defer></script>
+
+    <script>
+        @if(Session::has('success'))
+                toastr.success("{{ Session::get('success') }}")
+          @endif
+          @if(Session::has('info'))
+                toastr.info("{{ Session::get('info') }}")
+          @endif
+    </script>
+
+    @yield('scripts')
+
 </body>
 
 </html>
