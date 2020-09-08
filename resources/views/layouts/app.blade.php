@@ -39,6 +39,7 @@
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
 
+
                     </ul>
 
                     <!-- Right Side Of Navbar -->
@@ -86,6 +87,8 @@
                         <li class="list-group-item">
                             <a href="{{ route('home') }}">Home</a>
                         </li>
+
+
                     </ul>
                 </div>
                 @endif
